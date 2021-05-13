@@ -185,6 +185,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/01/10/art-template%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/10/art-template%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" class="post-title-link" itemprop="url">art-template模板引擎</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-10 09:10:50" itemprop="dateCreated datePublished" datetime="2020-01-10T09:10:50+08:00">2020-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>分享一个之前用过的模板引擎<a href="https://aui.github.io/art-template/zh-cn/docs/" target="_blank" rel="noopener">art-template</a>。解决的需求是要动态渲染地图上点位信息展示面板Popup、Tooltip。</p>
+<h3 id="渲染模板"><a href="#渲染模板" class="headerlink" title="渲染模板"></a>渲染模板</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="built_in">require</span>(<span class="string">'art-template'</span>);</span><br><span class="line"><span class="keyword">var</span> html = template(__dirname + <span class="string">'/tpl-user.art'</span>, &#123;</span><br><span class="line">    user: &#123;</span><br><span class="line">        name: <span class="string">'aui'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基于模板名渲染模板</span></span><br><span class="line">template(filename, data);</span><br><span class="line"><span class="comment">// 将模板源代码编译成函数</span></span><br><span class="line">template.compile(source, options);</span><br><span class="line"><span class="comment">// 将模板源代码编译成函数并立刻执行</span></span><br><span class="line">template.render(source, data, options);</span><br></pre></td></tr></table></figure>
+
+<h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">template.helper(&quot;getAlarmType&quot;, function (alarm) &#123;</span><br><span class="line">  if(alarm)&#123;</span><br><span class="line">    if(alarm[0]&amp;&amp;alarm[0].type==&apos;offline&apos;)&#123;</span><br><span class="line">      return &apos;offline&apos;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      return &apos;alarmvalue&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    return &apos;normalvalue&apos;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">const popupLabel = function (data)&#123;</span><br><span class="line">    return  template.compile(</span><br><span class="line">`</span><br><span class="line">  &lt;div class=&quot;event-box shadow gx-box&quot;&gt;</span><br><span class="line">  &lt;table&gt;</span><br><span class="line">    &#123;&#123;if !haslabel&#125;&#125;</span><br><span class="line">    &lt;tr class=&quot;title &#123;&#123;alarm?(offline?&apos;offline&apos;:&apos;tralarm&apos;):&apos;trnormal&apos;&#125;&#125; &#123;&#123;if !alarm&amp;&amp;(!sensors||sensors.length==0||hasdata)&#125;&#125;wtitle&#123;&#123;/if&#125;&#125;&quot;&gt;</span><br><span class="line">        &lt;td class=&quot;name&quot; colspan=3&gt;</span><br><span class="line">            &lt;span&gt;&#123;&#123;sname||name&#125;&#125;&lt;span&gt;</span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &#123;&#123;/if&#125;&#125;</span><br><span class="line">    &#123;&#123;if !hasdata&#125;&#125;</span><br><span class="line">      &#123;&#123;each sensors as s&#125;&#125;</span><br><span class="line">        &lt;tr class=&quot;&#123;&#123;s.alarm?&apos;alarmpopup&apos;:&apos;notalarm&apos;&#125;&#125;&quot;&gt;</span><br><span class="line">            &lt;td class=&quot;name&quot;&gt;&#123;&#123;s.name&#125;&#125;&lt;/td&gt;</span><br><span class="line">            &lt;td class=&quot;value &#123;&#123;getAlarmType(s.alarm)&#125;&#125;&quot;&gt;&#123;&#123;s.val==null?&apos;通讯中&apos;:s.val&#125;&#125;&lt;/td&gt;</span><br><span class="line">            &lt;td class=&quot;unit &#123;&#123;getAlarmType(s.alarm)&#125;&#125;&quot;&gt;&#123;&#123;s.unit&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">      &#123;&#123;/each&#125;&#125;</span><br><span class="line">    &#123;&#123;/if&#125;&#125;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">`</span><br><span class="line">    )(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/jiqiyoudu/p/4588042.html" target="_blank" rel="noopener">cnblog</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/01/08/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +289,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -281,7 +354,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -346,7 +419,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -410,7 +483,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -476,7 +549,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -550,7 +623,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -621,7 +694,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -691,7 +764,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -767,7 +840,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
+                <time title="修改时间：2021-05-13 10:30:37" itemprop="dateModified" datetime="2021-05-13T10:30:37+08:00">2021-05-13</time>
               </span>
 
           
@@ -802,100 +875,6 @@
 <p>图片效果：<br><img src="noAccess.png" alt="noAccess"></p>
 <p><strong>这种方式插入的图片无法在首页中显示，只能在文章内容中显示。</strong></p>
 <p>根据<a href="https://hexo.io/zh-cn/docs/asset-folders.html#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6" target="_blank" rel="noopener">官网文档</a>描述，<strong>通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/" class="post-title-link" itemprop="url">Github Pages绑定域名</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-18 09:47:15" itemprop="dateCreated datePublished" datetime="2019-12-18T09:47:15+08:00">2019-12-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 10:57:13" itemprop="dateModified" datetime="2021-05-12T10:57:13+08:00">2021-05-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>以前在<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>上购买过top的一级域名，且还没到期。</p>
-<h2 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h2><p>在我部署GitHub Pages前，这个域名我是设置了A记录指向了自己的vps主机。装了Nginx，反向代理到webpack打包后dist目录。</p>
-<ul>
-<li>设置如下：<ul>
-<li>主机名：www|@</li>
-<li>类型：A记录</li>
-<li>对应值：（vps IP地址）</li>
-</ul>
-</li>
-</ul>
-<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>现在由于折腾，想把域名指向自己的GitHub Pages。设置起来也很简单，主要分以下两步。</p>
-<ol>
-<li>修改域名解析<ul>
-<li>主机名：www|@</li>
-<li>类型：CNAME</li>
-<li>对应值：zjy7.github.io</li>
-</ul>
-</li>
-<li>添加Github Pages CNAME记录。<ul>
-<li>到自己的GitHubPages仓库下。在Settings -&gt; GitHub Pages -&gt; Custom domain内填入自己的域名地址。</li>
-<li>保存后，就会在仓库根目录下看的新增的CNAME文件。参考GitHub文档<a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener">managing-a-custom-domain-for-your-github-pages-site</a></li>
-</ul>
-</li>
-</ol>
-<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>  通过Travis CI自动部署至GitHub Pages后，CNAME文件就没了。<br>  解决方案：<strong>将CNAME文件放到source目录下</strong>。</p>
-<p>  部署后，发现仓库根目录下的确有CNAME文件。点击Settings后发现Custom domain也是正确的。但是访问zjy7.top失败。</p>
-<p>  等待约5分钟后，还是不行。</p>
-<p>  打开<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>域名管理页查看。发现CNAME解析的状态已改为暂停。<br>  解决方案：<strong>手动开启CNAME域名解析</strong>。</p>
-<p>  等待1分钟后，可以正常访问zjy7.top。</p>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>  域名解析指向添加成功和修改成功，需等待各地dns刷新后解析方可生效。实测大概需要5分钟。</p>
 
       
     </div>
@@ -961,7 +940,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">162</span>
+          <span class="site-state-item-count">163</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
