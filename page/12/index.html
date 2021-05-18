@@ -185,6 +185,70 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/11/03/deepClone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/03/deepClone/" class="post-title-link" itemprop="url">deepClone</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-03 14:35:11" itemprop="dateCreated datePublished" datetime="2020-11-03T14:35:11+08:00">2020-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> newobj = (obj &amp;&amp; obj.constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.JSON) &#123;</span><br><span class="line">    <span class="comment">// 系列化对象</span></span><br><span class="line">    str = <span class="built_in">JSON</span>.stringify(obj);</span><br><span class="line">    <span class="comment">// 还原</span></span><br><span class="line">    newobj = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">        newobj[prop] = <span class="keyword">typeof</span> obj[prop] === <span class="string">'object'</span> ? deepCopy(obj[prop]) : obj[prop]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newobj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/11/03/css%E5%8A%A8%E7%94%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +280,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -280,7 +344,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -376,7 +440,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -492,7 +556,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -556,7 +620,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -623,7 +687,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -687,7 +751,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -756,7 +820,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -820,7 +884,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
+                <time title="修改时间：2021-05-18 15:19:12" itemprop="dateModified" datetime="2021-05-18T15:19:12+08:00">2021-05-18</time>
               </span>
 
           
@@ -839,83 +903,6 @@
 
 <p>// 在vue-config.js 中加入</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">'compression-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">'js'</span>, <span class="string">'css'</span>];</span><br><span class="line"><span class="keyword">const</span> isProduction = process.env.NODE_ENV === <span class="string">'production'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.....</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">    configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">            config.plugins.push(</span><br><span class="line">                <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">                    algorithm: <span class="string">'gzip'</span>,</span><br><span class="line">                    test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\.('</span> + productionGzipExtensions.join(<span class="string">'|'</span>) + <span class="string">')$'</span>),</span><br><span class="line">                    threshold: <span class="number">10240</span>,</span><br><span class="line">                    minRatio: <span class="number">0.8</span></span><br><span class="line">                &#125;)</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/09/16/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" class="post-title-link" itemprop="url">ssh免密码登陆</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-16 16:21:14" itemprop="dateCreated datePublished" datetime="2020-09-16T16:21:14+08:00">2020-09-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-17 17:15:18" itemprop="dateModified" datetime="2021-05-17T17:15:18+08:00">2021-05-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ssh 无密码登录要使用公钥与私钥。linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>
-<p>有机器A(192.168.1.155)，B(192.168.1.181)。现想A通过ssh免密码登录到B。</p>
-<p>1.在A机下生成公钥/私钥对。<br>[chenlb@A ~]$ ssh-keygen -t rsa -P ‘’</p>
-<p>-P表示密码，-P ‘’ 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。<br>它在/home/chenlb下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。</p>
-<p>2.把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。<br>[chenlb@A ~]$ scp .ssh/id_rsa.pub <a href="mailto:chenlb@192.168.1.181" target="_blank" rel="noopener">chenlb@192.168.1.181</a>:/home/chenlb/id_rsa.pub<br><a href="mailto:chenlb@192.168.1.181" target="_blank" rel="noopener">chenlb@192.168.1.181</a>‘s password:<br>id_rsa.pub 100% 223 0.2KB/s 00:00</p>
-<p>由于还没有免密码登录的，所以要输入密码。</p>
-<p>3.B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。<br>[chenlb@B ~]$ cat id_rsa.pub &gt;&gt; .ssh/authorized_keys<br>[chenlb@B ~]$ chmod 600 .ssh/authorized_keys</p>
-<p>authorized_keys的权限要是600。</p>
-<p>4.A机登录B机。<br>[chenlb@A ~]$ ssh 192.168.1.181<br>The authenticity of host ‘192.168.1.181 (192.168.1.181)’ can’t be established.<br>RSA key fingerprint is 00:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.<br>Are you sure you want to continue connecting (yes/no)? yes<br>Warning: Permanently added ‘192.168.1.181’ (RSA) to the list of known hosts.<br>Last login: Thu Jul 3 09:53:18 2008 from chenlb<br>[chenlb@B ~]$</p>
-<p>第一次登录是时要你输入yes。</p>
-<p>现在A机可以无密码登录B机了。</p>
-<p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
-<p>想让A，B机无密码互登录，那B机以上面同样的方式配置即可。</p>
 
       
     </div>
@@ -981,7 +968,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">165</span>
+          <span class="site-state-item-count">166</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
