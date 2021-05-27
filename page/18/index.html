@@ -185,6 +185,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/" class="post-title-link" itemprop="url">Github Pages绑定域名</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-18 09:47:15" itemprop="dateCreated datePublished" datetime="2019-12-18T09:47:15+08:00">2019-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>以前在<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>上购买过top的一级域名，且还没到期。</p>
+<h2 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h2><p>在我部署GitHub Pages前，这个域名我是设置了A记录指向了自己的vps主机。装了Nginx，反向代理到webpack打包后dist目录。</p>
+<ul>
+<li>设置如下：<ul>
+<li>主机名：www|@</li>
+<li>类型：A记录</li>
+<li>对应值：（vps IP地址）</li>
+</ul>
+</li>
+</ul>
+<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>现在由于折腾，想把域名指向自己的GitHub Pages。设置起来也很简单，主要分以下两步。</p>
+<ol>
+<li>修改域名解析<ul>
+<li>主机名：www|@</li>
+<li>类型：CNAME</li>
+<li>对应值：zjy7.github.io</li>
+</ul>
+</li>
+<li>添加Github Pages CNAME记录。<ul>
+<li>到自己的GitHubPages仓库下。在Settings -&gt; GitHub Pages -&gt; Custom domain内填入自己的域名地址。</li>
+<li>保存后，就会在仓库根目录下看的新增的CNAME文件。参考GitHub文档<a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener">managing-a-custom-domain-for-your-github-pages-site</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>  通过Travis CI自动部署至GitHub Pages后，CNAME文件就没了。<br>  解决方案：<strong>将CNAME文件放到source目录下</strong>。</p>
+<p>  部署后，发现仓库根目录下的确有CNAME文件。点击Settings后发现Custom domain也是正确的。但是访问zjy7.top失败。</p>
+<p>  等待约5分钟后，还是不行。</p>
+<p>  打开<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>域名管理页查看。发现CNAME解析的状态已改为暂停。<br>  解决方案：<strong>手动开启CNAME域名解析</strong>。</p>
+<p>  等待1分钟后，可以正常访问zjy7.top。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>  域名解析指向添加成功和修改成功，需等待各地dns刷新后解析方可生效。实测大概需要5分钟。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2019/12/17/hexo-%E8%8D%89%E7%A8%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +310,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -287,7 +381,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -379,7 +473,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">172</span>
+          <span class="site-state-item-count">173</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

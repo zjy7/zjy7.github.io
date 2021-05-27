@@ -185,6 +185,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/10/23/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/23/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">JavaScript 模块化编程</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-23 17:24:25" itemprop="dateCreated datePublished" datetime="2020-10-23T17:24:25+08:00">2020-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="JavaScript-模块化编程"><a href="#JavaScript-模块化编程" class="headerlink" title="JavaScript 模块化编程"></a>JavaScript 模块化编程</h1><h2 id="网站越来越复杂，js代码、js文件也越来越多，会遇到什么问题？"><a href="#网站越来越复杂，js代码、js文件也越来越多，会遇到什么问题？" class="headerlink" title="网站越来越复杂，js代码、js文件也越来越多，会遇到什么问题？"></a>网站越来越复杂，js代码、js文件也越来越多，会遇到什么问题？</h2><p>1.命名冲突</p>
+<p>2.文件依赖问题</p>
+<h2 id="什么是模块化"><a href="#什么是模块化" class="headerlink" title="什么是模块化"></a>什么是模块化</h2><h2 id="模块化开发演变"><a href="#模块化开发演变" class="headerlink" title="模块化开发演变"></a>模块化开发演变</h2><h3 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h3><ul>
+<li>命名冲突</li>
+<li>文件依赖的问题</li>
+</ul>
+<h3 id="对象封装"><a href="#对象封装" class="headerlink" title="对象封装"></a>对象封装</h3><ul>
+<li>用命名空间的方式进行封装</li>
+<li>先约定命名的规范的形式</li>
+<li>对象里面的属性和方法很容易被修改掉，很不安全</li>
+</ul>
+<h3 id="划分私有空间"><a href="#划分私有空间" class="headerlink" title="划分私有空间"></a>划分私有空间</h3><p>-通过匿名函数自执行的方法封装模块，<br>-可以保护私有变量和方法</p>
+<h3 id="模块的维护扩展"><a href="#模块的维护扩展" class="headerlink" title="模块的维护扩展"></a>模块的维护扩展</h3><ul>
+<li>开闭原则，对修改关闭，对扩展开放。</li>
+<li>增加了代码的健壮性和容错性</li>
+</ul>
+<h3 id="模块的第三方依赖"><a href="#模块的第三方依赖" class="headerlink" title="模块的第三方依赖"></a>模块的第三方依赖</h3><ul>
+<li>模块职责唯一性</li>
+<li>把依赖的模块，通过依赖注入的形式，在你的参数上进行体现。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>最大的问题，规范的问题</li>
+<li>如果在多人协作开发过程中，会有很大的问题</li>
+<li>多人协作开发过程中：代码的风格一定要统一</li>
+</ul>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><h3 id="服务器端模块化规范"><a href="#服务器端模块化规范" class="headerlink" title="服务器端模块化规范"></a>服务器端模块化规范</h3><h3 id="浏览器端模块化规范"><a href="#浏览器端模块化规范" class="headerlink" title="浏览器端模块化规范"></a>浏览器端模块化规范</h3><ul>
+<li>AMD<ul>
+<li>RequireJS</li>
+</ul>
+</li>
+<li>CMD<ul>
+<li>SeaJS<br>commonjs<ul>
+<li>node.js</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="SeaJS"><a href="#SeaJS" class="headerlink" title="SeaJS"></a>SeaJS</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h3 id="整体感知"><a href="#整体感知" class="headerlink" title="整体感知"></a>整体感知</h3><h3 id="定义模块-define"><a href="#定义模块-define" class="headerlink" title="定义模块 define"></a>定义模块 define</h3><ul>
+<li>定义模块 define(function(){})</li>
+<li>函数体内的方法属性都属于这个方法，对外有封装性;解决了命名冲突问题，使js代码有了封装性</li>
+<li>直接调用 jQuery 插件等非标准模块的方法 <a href="http://my.oschina.net/briviowang/blog/208587" target="_blank" rel="noopener">http://my.oschina.net/briviowang/blog/208587</a></li>
+</ul>
+<h3 id="启动模块-seajs-use"><a href="#启动模块-seajs-use" class="headerlink" title="启动模块 seajs.use"></a>启动模块 seajs.use</h3><ul>
+<li>加载入口模块，我们把define定义的js就叫模块</li>
+<li>这个用于在html代码里面的加载<h3 id="加载模块-require"><a href="#加载模块-require" class="headerlink" title="加载模块 require"></a>加载模块 require</h3></li>
+<li>加载文件依赖、模块依赖的，用于define函数体内<h3 id="暴露接口-exports-和-module-exports"><a href="#暴露接口-exports-和-module-exports" class="headerlink" title="暴露接口 exports 和 module.exports"></a>暴露接口 exports 和 module.exports</h3></li>
+<li>module.exports曝露出一个完整的对象，只能扔一次只能曝露出来一个</li>
+<li>exports是module.exports的别名，可以用来单个属性、方法、对象的曝露，用.的形式,exports能做的事情module.exports也可以做</li>
+<li>使用场景用.属性的形式曝露属性和方法的时候，而且是多个的时候用exports</li>
+<li>module.exports直接等于的方式用，直接等于一个方法属性对象等等<del>~</del><br>##requirejs<br>与seajs的区别<br>requirejs是优先加载的<br>seajs是懒加载的，就是有拖延症，用的时候才加载<br><a href="http://www.requirejs.cn/" target="_blank" rel="noopener">http://www.requirejs.cn/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/10/16/signature/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +332,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -280,7 +396,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -347,7 +463,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -411,7 +527,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -480,7 +596,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -544,7 +660,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -613,7 +729,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -690,7 +806,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -799,7 +915,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
+                <time title="修改时间：2021-05-27 09:00:34" itemprop="dateModified" datetime="2021-05-27T09:00:34+08:00">2021-05-27</time>
               </span>
 
           
@@ -814,70 +930,6 @@
 
       
           <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar</span> </span><br><span class="line">  <span class="selector-tag">width</span>: 2<span class="selector-tag">px</span>;</span><br><span class="line">  <span class="selector-tag">height</span>: 4<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar-button</span></span><br><span class="line">  <span class="selector-tag">height</span>: 10<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar-track</span></span><br><span class="line">  <span class="selector-tag">background-color</span><span class="selector-pseudo">:transparent</span>;</span><br><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar-thumb</span></span><br><span class="line">  <span class="selector-tag">background-color</span>:<span class="selector-id">#3270e1</span>;</span><br><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar-thumb</span><span class="selector-pseudo">:hover</span> </span><br><span class="line">  <span class="selector-tag">background-color</span>:<span class="selector-id">#3270e1</span>;</span><br><span class="line"><span class="selector-class">.ivu-table-body</span><span class="selector-pseudo">::-webkit-scrollbar-thumb</span><span class="selector-pseudo">:active</span></span><br><span class="line">  <span class="selector-tag">background-color</span>:<span class="selector-id">#3270e1</span>;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zjy7.top/2020/09/11/generator%E7%94%9F%E6%88%90%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/11/generator%E7%94%9F%E6%88%90%E5%99%A8/" class="post-title-link" itemprop="url">generator生成器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-11 11:21:13" itemprop="dateCreated datePublished" datetime="2020-09-11T11:21:13+08:00">2020-09-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 09:53:46" itemprop="dateModified" datetime="2021-05-26T09:53:46+08:00">2021-05-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fib</span>(<span class="params">max</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span></span><br><span class="line">    t,</span><br><span class="line">    a = <span class="number">0</span>,</span><br><span class="line">    b = <span class="number">1</span>,</span><br><span class="line">    n = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (n &lt; max) &#123;</span><br><span class="line">    <span class="keyword">yield</span> a;</span><br><span class="line">    t = a + b;</span><br><span class="line">    a = b;</span><br><span class="line">    b = t;</span><br><span class="line">    n ++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fib(<span class="number">5</span>); <span class="comment">// fib &#123;[[GeneratorStatus]]: "suspended", [[GeneratorReceiver]]: Window&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = fib(<span class="number">5</span>);</span><br><span class="line">f.next(); <span class="comment">// &#123;value: 0, done: false&#125;</span></span><br><span class="line">f.next(); <span class="comment">// &#123;value: 1, done: false&#125;</span></span><br><span class="line">f.next(); <span class="comment">// &#123;value: 1, done: false&#125;</span></span><br><span class="line">f.next(); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line">f.next(); <span class="comment">// &#123;value: 3, done: true&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -942,7 +994,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">172</span>
+          <span class="site-state-item-count">173</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
