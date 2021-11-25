@@ -185,6 +185,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/09/21/%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/21/%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">前端打包优化</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-21 09:23:35" itemprop="dateCreated datePublished" datetime="2020-09-21T09:23:35+08:00">2020-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="服务器开启Gzip"><a href="#服务器开启Gzip" class="headerlink" title="服务器开启Gzip"></a>服务器开启Gzip</h2><p>Gzip是GNU zip的缩写，顾名思义是一种压缩技术。它将浏览器请求的文件先在服务器端进行压缩，然后传递给浏览器，浏览器解压之后再进行页面的解析工作。在服务端开启Gzip支持后，我们前端需要提供资源压缩包。<br>通过CompressionWebpackPlugin插件build提供压缩</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 安装插件</span><br><span class="line">cnpm i --save-dev compression-webpack-plugin</span><br></pre></td></tr></table></figure>
+
+<p>// 在vue-config.js 中加入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">'compression-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> productionGzipExtensions = [<span class="string">'js'</span>, <span class="string">'css'</span>];</span><br><span class="line"><span class="keyword">const</span> isProduction = process.env.NODE_ENV === <span class="string">'production'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.....</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">    configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">            config.plugins.push(</span><br><span class="line">                <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">                    algorithm: <span class="string">'gzip'</span>,</span><br><span class="line">                    test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\.('</span> + productionGzipExtensions.join(<span class="string">'|'</span>) + <span class="string">')$'</span>),</span><br><span class="line">                    threshold: <span class="number">10240</span>,</span><br><span class="line">                    minRatio: <span class="number">0.8</span></span><br><span class="line">                &#125;)</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/09/16/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +285,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -293,7 +362,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -402,7 +471,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -466,7 +535,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -530,7 +599,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -598,7 +667,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -692,7 +761,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -766,7 +835,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -831,7 +900,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
+                <time title="修改时间：2021-11-25 11:45:11" itemprop="dateModified" datetime="2021-11-25T11:45:11+08:00">2021-11-25</time>
               </span>
 
           
@@ -875,84 +944,6 @@
 <li><p><a href="http://jibbering.com/faq/notes/closures/" target="_blank" rel="noopener">Javascript Closures</a></p>
 </li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/06/10/css-%E7%94%BB%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E4%B8%89%E8%A7%92%E5%BD%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/10/css-%E7%94%BB%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E4%B8%89%E8%A7%92%E5%BD%A2/" class="post-title-link" itemprop="url">css 画带边框的三角形</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-10 16:39:31" itemprop="dateCreated datePublished" datetime="2020-06-10T16:39:31+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-23 15:18:38" itemprop="dateModified" datetime="2021-11-23T15:18:38+08:00">2021-11-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Code/" itemprop="url" rel="index">
-                    <span itemprop="name">Code</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Talk-is-cheap-Show-me-the-code"><a href="#Talk-is-cheap-Show-me-the-code" class="headerlink" title="Talk is cheap, Show me the code"></a><strong><em>Talk is cheap, Show me the code</em></strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=&quot;test_triangle_border&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;popup&quot;&gt;</span><br><span class="line">                &lt;span&gt;&lt;em&gt;&lt;/em&gt;&lt;/span&gt;</span><br><span class="line">                纯CSS写带边框的三角形</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .test_triangle_border&#123;</span><br><span class="line">    width:200px; </span><br><span class="line">    height:500px;</span><br><span class="line">    margin:0 auto 20px;</span><br><span class="line">    position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.test_triangle_border a&#123;</span><br><span class="line">    color:#333;</span><br><span class="line">    font-weight:bold; </span><br><span class="line">    text-decoration:none;</span><br><span class="line">&#125;</span><br><span class="line">.test_triangle_border .popup&#123;</span><br><span class="line">    width:100px;</span><br><span class="line">    background:#fc0; </span><br><span class="line">    padding:10px 20px; </span><br><span class="line">    color:#333;  </span><br><span class="line">    border-radius:4px;</span><br><span class="line">    position:absolute; </span><br><span class="line">    top:30px; </span><br><span class="line">    left:30px;</span><br><span class="line">    border:1px solid #333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.test_triangle_border .popup span&#123;</span><br><span class="line">    display:block; </span><br><span class="line">    width:0; </span><br><span class="line">    height:0; </span><br><span class="line">    border-width:0 10px 10px; </span><br><span class="line">    border-style:solid; </span><br><span class="line">    border-color:transparent transparent #333; </span><br><span class="line">    position:absolute; </span><br><span class="line">    top:-10px; </span><br><span class="line">    left:50%;/* 三角形居中显示 */</span><br><span class="line">    margin-left:-10px;/* 三角形居中显示 */</span><br><span class="line">&#125;</span><br><span class="line">.test_triangle_border .popup em&#123;</span><br><span class="line">    display:block; </span><br><span class="line">    width:0; </span><br><span class="line">    height:0; </span><br><span class="line">    border-width:0 10px 10px; </span><br><span class="line">    border-style:solid; </span><br><span class="line">    border-color:transparent transparent #fc0; </span><br><span class="line">    position:absolute; </span><br><span class="line">    top:1px; </span><br><span class="line">    left:-10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<img src="/2020/06/10/css-%E7%94%BB%E5%B8%A6%E8%BE%B9%E6%A1%86%E7%9A%84%E4%B8%89%E8%A7%92%E5%BD%A2/html.png" class="" title="This is image">
 
       
     </div>
@@ -1018,7 +1009,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">176</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1071,7 +1062,7 @@
       <div class="footer-inner">
         <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共 10.4k 字</span>
+  <span class="post-count">全站共 10.8k 字</span>
 </div>
 
 <span class="post-meta-divider">|</span>
