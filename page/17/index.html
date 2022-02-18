@@ -185,6 +185,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/03/08/%E8%AE%B0%E4%B8%80%E6%AC%A1Cesium%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bale">
+      <meta itemprop="description" content="Hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bale's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/08/%E8%AE%B0%E4%B8%80%E6%AC%A1Cesium%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">记一次Cesium报错</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-08 11:02:23" itemprop="dateCreated datePublished" datetime="2020-03-08T11:02:23+08:00">2020-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>因为业务需求，要用cesium做个3D地图。然后网上搜了一下Vue cli3 + Cesium的demo。跑在自己的项目里。</p>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Attempted import error: ‘cesium/Cesium’ does not contain a default export (imported as ‘Cesium’)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查错"><a href="#查错" class="headerlink" title="查错"></a>查错</h2><p>问题在于根据路径找得到对应文件，但是对应文件并没有默认export的参数。出错的地方在对应引入Cesium的地方：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Cesium from &quot;cesium/Cesium&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>打开node_modules/cesuim/Source/Cesium.js后发现，Cesium更新到1.63后它的类都是模块化导出，不再像以前一样导出cesium,再通过cesium调用。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export &#123; default as ApproximateTerrainHeights &#125; from &apos;./Core/ApproximateTerrainHeights.js&apos;;</span><br><span class="line">export &#123; default as ArcGISTiledElevationTerrainProvider &#125; from &apos;./Core/ArcGISTiledElevationTerrainProvider.js&apos;;</span><br><span class="line">export &#123; default as ArcType &#125; from &apos;./Core/ArcType.js&apos;;</span><br><span class="line">export &#123; default as AssociativeArray &#125; from &apos;./Core/AssociativeArray.js&apos;;</span><br><span class="line">export &#123; default as AttributeCompression &#125; from &apos;./Core/AttributeCompression.js&apos;;</span><br><span class="line">export &#123; default as AxisAlignedBoundingBox &#125; from &apos;./Core/AxisAlignedBoundingBox.js&apos;;</span><br><span class="line">export &#123; default as BingMapsApi &#125; from &apos;./Core/BingMapsApi.js&apos;;</span><br><span class="line">export &#123; default as BingMapsGeocoderService &#125; from &apos;./Core/BingMapsGeocoderService.js&apos;;</span><br><span class="line">export &#123; default as BoundingRectangle &#125; from &apos;./Core/BoundingRectangle.js&apos;;</span><br><span class="line">export &#123; default as BoundingSphere &#125; from &apos;./Core/BoundingSphere.js&apos;;</span><br><span class="line">export &#123; default as BoxGeometry &#125; from &apos;./Core/BoxGeometry.js&apos;;</span><br><span class="line">export &#123; default as BoxOutlineGeometry &#125; from &apos;./Core/BoxOutlineGeometry.js&apos;;</span><br><span class="line">export &#123; default as Cartesian2 &#125; from &apos;./Core/Cartesian2.js&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li><p>不能像之前网上普遍的引入cesium做法一样,，需要按需引入，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import Viewer from &quot;cesium/Cesium&quot;;</span><br><span class="line">import UrlTemplateImageryProvider from &quot;cesium/Cesium&quot;;</span><br><span class="line">import createWorldTerrain from &quot;cesium/Cesium&quot;;</span><br><span class="line">import Cesium3DTileset from &quot;cesium/Cesium&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>或者在npm安装的时候制定cesium的版本号为1.62，再</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Cesium from &quot;cesium/Cesium&quot;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/03/07/scp%E5%A4%8D%E5%88%B6%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E8%87%B3%E6%9C%AC%E5%9C%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -216,7 +307,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,7 +384,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -370,7 +461,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -456,7 +547,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
 
           
@@ -530,7 +621,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
 
           
@@ -594,7 +685,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -670,7 +761,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
 
           
@@ -743,7 +834,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
 
           
@@ -808,7 +899,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
+                <time title="修改时间：2022-02-18 15:33:33" itemprop="dateModified" datetime="2022-02-18T15:33:33+08:00">2022-02-18</time>
               </span>
 
           
@@ -824,70 +915,6 @@
       
           <p>所有靠物质支撑的幸福感，都不能持久，都会随着物质的离去而离去。只有心灵的淡定宁静，继而产生的身心愉悦，才是幸福的真正源泉。</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/01/06/%E6%B8%AF%E7%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/06/%E6%B8%AF%E7%9C%9F/" class="post-title-link" itemprop="url">港真</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-06 15:28:01" itemprop="dateCreated datePublished" datetime="2020-01-06T15:28:01+08:00">2020-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-15 15:46:33" itemprop="dateModified" datetime="2022-02-15T15:46:33+08:00">2022-02-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="作为运营部最有原则的男人，港真，我觉得自己真的快撑不住了。这段时间终于领悟“梦想总是遥不可及”的感觉，是不是该放弃？放弃究竟是不是一种美丽？"><a href="#作为运营部最有原则的男人，港真，我觉得自己真的快撑不住了。这段时间终于领悟“梦想总是遥不可及”的感觉，是不是该放弃？放弃究竟是不是一种美丽？" class="headerlink" title="作为运营部最有原则的男人，港真，我觉得自己真的快撑不住了。这段时间终于领悟“梦想总是遥不可及”的感觉，是不是该放弃？放弃究竟是不是一种美丽？"></a>作为运营部最有原则的男人，港真，我觉得自己真的快撑不住了。这段时间终于领悟“梦想总是遥不可及”的感觉，是不是该放弃？放弃究竟是不是一种美丽？</h3><h3 id="我的内心很纠结："><a href="#我的内心很纠结：" class="headerlink" title="我的内心很纠结："></a>我的内心很纠结：</h3><h3 id="曾经我是一位跑者，一位像风一样自由的追风少年。"><a href="#曾经我是一位跑者，一位像风一样自由的追风少年。" class="headerlink" title="曾经我是一位跑者，一位像风一样自由的追风少年。"></a>曾经我是一位跑者，一位像风一样自由的追风少年。</h3><h3 id="我喜欢奔跑在山坡上，迎着朝霞灿烂的拥抱；我喜欢飞驰在青青河边，伴着晚风的呢喃；我喜欢驰骋在操场上，享受那挥汗如雨的欢愉……那些轻盈的脚步就像一个集野性与温柔与一身的水嫩姑娘，吸引着我，渐渐地，成为一位放不下脚步的跑者。"><a href="#我喜欢奔跑在山坡上，迎着朝霞灿烂的拥抱；我喜欢飞驰在青青河边，伴着晚风的呢喃；我喜欢驰骋在操场上，享受那挥汗如雨的欢愉……那些轻盈的脚步就像一个集野性与温柔与一身的水嫩姑娘，吸引着我，渐渐地，成为一位放不下脚步的跑者。" class="headerlink" title="我喜欢奔跑在山坡上，迎着朝霞灿烂的拥抱；我喜欢飞驰在青青河边，伴着晚风的呢喃；我喜欢驰骋在操场上，享受那挥汗如雨的欢愉……那些轻盈的脚步就像一个集野性与温柔与一身的水嫩姑娘，吸引着我，渐渐地，成为一位放不下脚步的跑者。"></a>我喜欢奔跑在山坡上，迎着朝霞灿烂的拥抱；我喜欢飞驰在青青河边，伴着晚风的呢喃；我喜欢驰骋在操场上，享受那挥汗如雨的欢愉……那些轻盈的脚步就像一个集野性与温柔与一身的水嫩姑娘，吸引着我，渐渐地，成为一位放不下脚步的跑者。</h3>
       
     </div>
 
@@ -952,7 +979,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">179</span>
+          <span class="site-state-item-count">180</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1005,7 +1032,7 @@
       <div class="footer-inner">
         <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">全站共 10.9k 字</span>
+  <span class="post-count">全站共 11.5k 字</span>
 </div>
 
 <span class="post-meta-divider">|</span>
