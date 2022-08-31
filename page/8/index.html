@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/19/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2019/12/18/%E6%B5%8B%E8%AF%95post-asset-folder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +199,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/19/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2019/12/18/%E6%B5%8B%E8%AF%95post-asset-folder/" class="post-title-link" itemprop="url">测试post_asset_folder</a>
         </h1>
 
         <div class="post-meta">
@@ -209,14 +209,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-19 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-19T08:46:14+08:00">2021-03-19</time>
+              <time title="创建时间：2019-12-18 10:25:20" itemprop="dateCreated datePublished" datetime="2019-12-18T10:25:20+08:00">2019-12-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -230,7 +230,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/03/19/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <h2 id="测试下hexo插入图片"><a href="#测试下hexo插入图片" class="headerlink" title="测试下hexo插入图片"></a>测试下hexo插入图片</h2><p>步骤如下：</p>
+<ol>
+<li>将_config.yml文件中的配置项“post_asset_folder”设置为true</li>
+<li>使用hexo new post [测试post_asset_folder]命令创建新的文章时，在source/_post目录下就会出现一个文件和一个目录：<ul>
+<li>测试post_asset_folder.md</li>
+<li>测试post_asset_folder目录</li>
+</ul>
+</li>
+<li>将要插入的图片放置到[测试post_asset_folder]目录下</li>
+<li>在文章中使用以下的方式来插入图片即可：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img noAccess.png This is an noAccess image %&#125;</span><br></pre></td></tr></table></figure>
+<p>图片效果：</p>
+<img src="/2019/12/18/%E6%B5%8B%E8%AF%95post-asset-folder/noAccess.png" class="" title="noAccess image">
+
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>使用以下方式也能插入图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![noAccess](noAccess.png)</span><br></pre></td></tr></table></figure>
+
+<p>图片效果：<br><img src="noAccess.png" alt="noAccess"></p>
+<p><strong>这种方式插入的图片无法在首页中显示，只能在文章内容中显示。</strong></p>
+<p>根据<a href="https://hexo.io/zh-cn/docs/asset-folders.html#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6" target="_blank" rel="noopener">官网文档</a>描述，<strong>通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。</strong></p>
 
       
     </div>
@@ -250,7 +270,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -264,7 +284,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2019/12/18/Github-Pages%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/" class="post-title-link" itemprop="url">Github Pages绑定域名</a>
         </h1>
 
         <div class="post-meta">
@@ -274,14 +294,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-18 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-18T08:46:14+08:00">2021-03-18</time>
+              <time title="创建时间：2019-12-18 09:47:15" itemprop="dateCreated datePublished" datetime="2019-12-18T09:47:15+08:00">2019-12-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -295,7 +315,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/03/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>以前在<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>上购买过top的一级域名，且还没到期。</p>
+<h2 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h2><p>在我部署GitHub Pages前，这个域名我是设置了A记录指向了自己的vps主机。装了Nginx，反向代理到webpack打包后dist目录。</p>
+<ul>
+<li>设置如下：<ul>
+<li>主机名：www|@</li>
+<li>类型：A记录</li>
+<li>对应值：（vps IP地址）</li>
+</ul>
+</li>
+</ul>
+<h2 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h2><p>现在由于折腾，想把域名指向自己的GitHub Pages。设置起来也很简单，主要分以下两步。</p>
+<ol>
+<li>修改域名解析<ul>
+<li>主机名：www|@</li>
+<li>类型：CNAME</li>
+<li>对应值：zjy7.github.io</li>
+</ul>
+</li>
+<li>添加Github Pages CNAME记录。<ul>
+<li>到自己的GitHubPages仓库下。在Settings -&gt; GitHub Pages -&gt; Custom domain内填入自己的域名地址。</li>
+<li>保存后，就会在仓库根目录下看的新增的CNAME文件。参考GitHub文档<a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site" target="_blank" rel="noopener">managing-a-custom-domain-for-your-github-pages-site</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>  通过Travis CI自动部署至GitHub Pages后，CNAME文件就没了。<br>  解决方案：<strong>将CNAME文件放到source目录下</strong>。</p>
+<p>  部署后，发现仓库根目录下的确有CNAME文件。点击Settings后发现Custom domain也是正确的。但是访问zjy7.top失败。</p>
+<p>  等待约5分钟后，还是不行。</p>
+<p>  打开<a href="https://www.west.cn/" target="_blank" rel="noopener">西部数码</a>域名管理页查看。发现CNAME解析的状态已改为暂停。<br>  解决方案：<strong>手动开启CNAME域名解析</strong>。</p>
+<p>  等待1分钟后，可以正常访问zjy7.top。</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>  域名解析指向添加成功和修改成功，需等待各地dns刷新后解析方可生效。实测大概需要5分钟。</p>
 
       
     </div>
@@ -315,7 +364,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2019/12/17/hexo-%E8%8D%89%E7%A8%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -329,7 +378,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2019/12/17/hexo-%E8%8D%89%E7%A8%BF/" class="post-title-link" itemprop="url">hexo-草稿</a>
         </h1>
 
         <div class="post-meta">
@@ -339,14 +388,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-17 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-17T08:46:14+08:00">2021-03-17</time>
+              <time title="创建时间：2019-12-17 15:48:37" itemprop="dateCreated datePublished" datetime="2019-12-17T15:48:37+08:00">2019-12-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -360,7 +409,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/03/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <h3 id="编写草稿"><a href="#编写草稿" class="headerlink" title="编写草稿"></a>编写草稿</h3><p>  hexo new draft ‘标题’<br>  生成的文件作为草稿放在source/_draft目录下<br>  放在_draft目录中的草稿，在hexo g命令后不会被生成</p>
+<h3 id="预览草稿"><a href="#预览草稿" class="headerlink" title="预览草稿"></a>预览草稿</h3><p>  如果想要查看草稿效果，有以下2种方法</p>
+<ol>
+<li>在启动本地服务的时候使用hexo s –draft</li>
+<li>在_config.yml文件中进行配置<br>render_drafts:true<br>这样每次启动本地服务的时候，都会渲染编写的草稿。</li>
+</ol>
+<h3 id="发布草稿"><a href="#发布草稿" class="headerlink" title="发布草稿"></a>发布草稿</h3><p>  编写好草稿后，可以使用以下命令，将草稿发布到source/_post目录中<br>  hexo publish post ‘标题’<br>  发布命令执行后，_draft目录中的草稿会被移除</p>
 
       
     </div>
@@ -380,7 +435,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/16/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2019/11/08/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -394,7 +449,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/16/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2019/11/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
         </h1>
 
         <div class="post-meta">
@@ -404,14 +459,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-16 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-16T08:46:14+08:00">2021-03-16</time>
+              <time title="创建时间：2019-11-08 15:48:37" itemprop="dateCreated datePublished" datetime="2019-11-08T15:48:37+08:00">2019-11-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -425,396 +480,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/03/16/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/15/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/15/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-15 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-15T08:46:14+08:00">2021-03-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/15/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-14 08:46:14" itemprop="dateCreated datePublished" datetime="2021-03-14T08:46:14+08:00">2021-03-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-13 13:20:28" itemprop="dateCreated datePublished" datetime="2021-03-13T13:20:28+08:00">2021-03-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/12/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/12/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-12 13:49:36" itemprop="dateCreated datePublished" datetime="2021-03-12T13:49:36+08:00">2021-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/12/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-11 09:07:09" itemprop="dateCreated datePublished" datetime="2021-03-11T09:07:09+08:00">2021-03-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/03/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bale">
-      <meta itemprop="description" content="Hello world">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bale's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-10 09:07:09" itemprop="dateCreated datePublished" datetime="2021-03-10T09:07:09+08:00">2021-03-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2021/03/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
     </div>
@@ -834,7 +512,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
   </nav>
 
 
@@ -880,7 +558,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">183</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

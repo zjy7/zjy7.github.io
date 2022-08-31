@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/27/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/01/28/vue2-3-migration-extend/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +199,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/27/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2021/01/28/vue2-3-migration-extend/" class="post-title-link" itemprop="url">vue2-3 migration(extend)</a>
         </h1>
 
         <div class="post-meta">
@@ -209,14 +209,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-27 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-27T08:46:14+08:00">2021-05-27</time>
+              <time title="创建时间：2021-01-28 18:27:12" itemprop="dateCreated datePublished" datetime="2021-01-28T18:27:12+08:00">2021-01-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:43" itemprop="dateModified" datetime="2022-08-31T16:49:43+08:00">2022-08-31</time>
               </span>
 
           
@@ -230,7 +230,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/27/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <h1 id="vue3已不支持vue-extend-api"><a href="#vue3已不支持vue-extend-api" class="headerlink" title="vue3已不支持vue.extend api"></a>vue3已不支持vue.extend api</h1><h1 id="vue2-挂载自定义的组件"><a href="#vue2-挂载自定义的组件" class="headerlink" title="vue2 挂载自定义的组件"></a>vue2 挂载自定义的组件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BusstationDetail <span class="keyword">from</span> <span class="string">'./BusstationDetail.vue'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到节点并且挂载</span></span><br><span class="line"><span class="keyword">let</span> eldom = <span class="built_in">document</span>.querySelector(<span class="string">'#defaultwindow'</span>)</span><br><span class="line"><span class="keyword">const</span> BusstationDetailConstructor = Vue.extend(BusstationDetail)</span><br><span class="line"><span class="comment">// 生成一个组件实例</span></span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> BusstationDetailConstructor()</span><br><span class="line"><span class="comment">// 设置自定义属性</span></span><br><span class="line">instance.item = item</span><br><span class="line">instance.$mount(eldom)</span><br></pre></td></tr></table></figure>
+
+<h1 id="vue3-挂载自定义的组件"><a href="#vue3-挂载自定义的组件" class="headerlink" title="vue3 挂载自定义的组件"></a>vue3 挂载自定义的组件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> BusstationDetail <span class="keyword">from</span> <span class="string">'./BusstationDetail.vue'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 找到节点并且挂载</span></span><br><span class="line"><span class="keyword">let</span> eldom = <span class="built_in">document</span>.querySelector(<span class="string">'#defaultwindow'</span>)</span><br><span class="line"><span class="comment">// 子组件 通过props属性 item 接收</span></span><br><span class="line"><span class="keyword">const</span> app = createApp(</span><br><span class="line">BusstationDetail, &#123;</span><br><span class="line">    item: item</span><br><span class="line">&#125;)</span><br><span class="line">app.mount(eldom)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -250,7 +252,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/26/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/01/11/%E8%8A%82%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -264,7 +266,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2021/01/11/%E8%8A%82%E7%82%B9/" class="post-title-link" itemprop="url">节点</a>
         </h1>
 
         <div class="post-meta">
@@ -274,14 +276,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-26 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-26T08:46:14+08:00">2021-05-26</time>
+              <time title="创建时间：2021-01-11 11:15:04" itemprop="dateCreated datePublished" datetime="2021-01-11T11:15:04+08:00">2021-01-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -295,7 +297,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/26/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <p>年份<br>是人类创造的虚拟单位<br>并不会影响时间的连续性<br>但人类需要虚假又温柔的<br>憧憬来自我安慰，鼓励自己<br>在这个陌生的世界勇敢走下去。</p>
 
       
     </div>
@@ -315,7 +317,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/25/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/01/07/%E5%AF%84%E8%AF%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -329,7 +331,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/25/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2021/01/07/%E5%AF%84%E8%AF%AD/" class="post-title-link" itemprop="url">寄语</a>
         </h1>
 
         <div class="post-meta">
@@ -339,14 +341,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-25 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-25T08:46:14+08:00">2021-05-25</time>
+              <time title="创建时间：2021-01-07 09:49:32" itemprop="dateCreated datePublished" datetime="2021-01-07T09:49:32+08:00">2021-01-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -360,8 +362,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/25/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <h1 id="万事怕有心，功到自然成"><a href="#万事怕有心，功到自然成" class="headerlink" title="万事怕有心，功到自然成"></a>万事怕有心，功到自然成</h1><h1 id="付出必有回报，自信绝对重要"><a href="#付出必有回报，自信绝对重要" class="headerlink" title="付出必有回报，自信绝对重要"></a>付出必有回报，自信绝对重要</h1><h1 id="你的坚持，终将美好"><a href="#你的坚持，终将美好" class="headerlink" title="你的坚持，终将美好"></a>你的坚持，终将美好</h1>
       
     </div>
 
@@ -380,7 +381,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/12/22/%E4%B8%8D%E7%BB%8F%E4%B8%80%E7%95%AA%E5%AF%92%E5%BD%BB%E9%AA%A8%EF%BC%8C%E5%93%AA%E6%9D%A5%E6%A2%85%E8%8A%B1%E6%89%91%E9%BC%BB%E9%A6%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -394,7 +395,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/12/22/%E4%B8%8D%E7%BB%8F%E4%B8%80%E7%95%AA%E5%AF%92%E5%BD%BB%E9%AA%A8%EF%BC%8C%E5%93%AA%E6%9D%A5%E6%A2%85%E8%8A%B1%E6%89%91%E9%BC%BB%E9%A6%99/" class="post-title-link" itemprop="url">不经一番寒彻骨，哪来梅花扑鼻香</a>
         </h1>
 
         <div class="post-meta">
@@ -404,14 +405,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-24 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-24T08:46:14+08:00">2021-05-24</time>
+              <time title="创建时间：2020-12-22 20:06:40" itemprop="dateCreated datePublished" datetime="2020-12-22T20:06:40+08:00">2020-12-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -425,8 +426,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          
       
     </div>
 
@@ -445,7 +445,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/12/09/git-merge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -459,7 +459,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/12/09/git-merge/" class="post-title-link" itemprop="url">git merge</a>
         </h1>
 
         <div class="post-meta">
@@ -469,14 +469,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-23 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-23T08:46:14+08:00">2021-05-23</time>
+              <time title="创建时间：2020-12-09 21:10:41" itemprop="dateCreated datePublished" datetime="2020-12-09T21:10:41+08:00">2020-12-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -490,8 +490,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
+          <h2 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br><span class="line">git pull</span><br><span class="line">git checkout master</span><br><span class="line">git merge dev</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
+<h2 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br><span class="line">git checkout dev</span><br><span class="line">git merge master</span><br><span class="line">git push -u origin dev</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -510,7 +511,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/21/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/11/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -524,7 +525,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/21/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/11/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
         </h1>
 
         <div class="post-meta">
@@ -534,14 +535,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-21 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-21T08:46:14+08:00">2021-05-21</time>
+              <time title="创建时间：2020-11-13 17:13:14" itemprop="dateCreated datePublished" datetime="2020-11-13T17:13:14+08:00">2020-11-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -555,8 +556,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/21/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <h2 id="People-are-curious-by-nature"><a href="#People-are-curious-by-nature" class="headerlink" title="People are curious by nature."></a>People are curious by nature.</h2>
       
     </div>
 
@@ -575,7 +575,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/11/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -589,7 +589,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/11/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
         </h1>
 
         <div class="post-meta">
@@ -599,14 +599,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-20 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-20T08:46:14+08:00">2021-05-20</time>
+              <time title="创建时间：2020-11-10 11:33:14" itemprop="dateCreated datePublished" datetime="2020-11-10T11:33:14+08:00">2020-11-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -620,8 +620,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <h2 id="Too-much-happiness-can-be-destructive"><a href="#Too-much-happiness-can-be-destructive" class="headerlink" title="Too much happiness can be destructive."></a>Too much happiness can be destructive.</h2>
       
     </div>
 
@@ -640,7 +639,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/11/05/%E9%97%AD%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -654,7 +653,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/11/05/%E9%97%AD%E5%8C%85/" class="post-title-link" itemprop="url">闭包</a>
         </h1>
 
         <div class="post-meta">
@@ -664,14 +663,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-18 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-18T08:46:14+08:00">2021-05-18</time>
+              <time title="创建时间：2020-11-05 15:02:26" itemprop="dateCreated datePublished" datetime="2020-11-05T15:02:26+08:00">2020-11-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -685,8 +684,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line">　　<span class="keyword">var</span> object = &#123;</span><br><span class="line">　　　　name : <span class="string">"My Object"</span>,</span><br><span class="line">　　　　getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　　　<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">　　　　　　&#125;;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;;</span><br><span class="line">    <span class="keyword">var</span> x=object.getNameFunc();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.x===x);  <span class="comment">//true</span></span><br><span class="line">    x();						<span class="comment">//"The Window"</span></span><br><span class="line"><span class="comment">/***********************************************/</span></span><br><span class="line">　　<span class="keyword">var</span> name1 = <span class="string">"The Window1"</span>;</span><br><span class="line">　　<span class="keyword">var</span> object1 = &#123;</span><br><span class="line">　　　　name1 : <span class="string">"My Object1"</span>,</span><br><span class="line">　　　　getNameFunc1 : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">　　　　　　<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(self);			<span class="comment">//object1</span></span><br><span class="line">　　　　　　　　<span class="built_in">console</span>.log(self.name1);	<span class="comment">//My Object1</span></span><br><span class="line">　　　　　　&#125;;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;;</span><br><span class="line">　　<span class="keyword">var</span> y=object1.getNameFunc1();</span><br><span class="line">    y();</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -705,7 +703,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/11/03/deepClone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -719,7 +717,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/11/03/deepClone/" class="post-title-link" itemprop="url">deepClone</a>
         </h1>
 
         <div class="post-meta">
@@ -729,14 +727,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-17 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-17T08:46:14+08:00">2021-05-17</time>
+              <time title="创建时间：2020-11-03 14:35:11" itemprop="dateCreated datePublished" datetime="2020-11-03T14:35:11+08:00">2020-11-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -750,8 +748,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> deepCopy = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> newobj = (obj &amp;&amp; obj.constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.JSON) &#123;</span><br><span class="line">    <span class="comment">// 系列化对象</span></span><br><span class="line">    str = <span class="built_in">JSON</span>.stringify(obj);</span><br><span class="line">    <span class="comment">// 还原</span></span><br><span class="line">    newobj = <span class="built_in">JSON</span>.parse(str);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">        newobj[prop] = <span class="keyword">typeof</span> obj[prop] === <span class="string">'object'</span> ? deepCopy(obj[prop]) : obj[prop]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newobj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -770,7 +767,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2021/05/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="https://zjy7.github.io/2020/11/03/css%E5%8A%A8%E7%94%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -784,7 +781,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/" class="post-title-link" itemprop="url">每日一句</a>
+            <a href="/2020/11/03/css%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">css动画</a>
         </h1>
 
         <div class="post-meta">
@@ -794,14 +791,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-14 08:46:14" itemprop="dateCreated datePublished" datetime="2021-05-14T08:46:14+08:00">2021-05-14</time>
+              <time title="创建时间：2020-11-03 14:33:53" itemprop="dateCreated datePublished" datetime="2020-11-03T14:33:53+08:00">2020-11-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-31 07:52:44" itemprop="dateModified" datetime="2022-08-31T07:52:44+08:00">2022-08-31</time>
+                <time title="修改时间：2022-08-31 16:49:42" itemprop="dateModified" datetime="2022-08-31T16:49:42+08:00">2022-08-31</time>
               </span>
 
           
@@ -815,8 +812,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="/2021/05/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%8F%A5/yiju.png" class="" title="meiriyiju">
-
+          <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> getbigger &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#ohnoes</span> &#123;</span><br><span class="line">    <span class="attribute">animation-name</span>: getbigger;</span><br><span class="line">    <span class="attribute">animation-duration</span>: <span class="number">3s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -835,7 +831,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -881,7 +877,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">183</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
